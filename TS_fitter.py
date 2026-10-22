@@ -151,7 +151,7 @@ def ts_surface(time_arr, flux_arr, err_arr, t0_grid, fwhm_grid, window=12.0):
         TS surface map over our flare parameter grid (t0, fwhm) showing the TS
         value of each fit.
     """
-r
+
     time_offset = time_arr[None, None, :] - t0_grid[:, None, None]
     # FWHM expression of gaussian instead of sigma, since we want to return FWHM
     model_profiles = np.exp(
@@ -381,7 +381,7 @@ def ts_fit_map(
             time_arr, flux_arr[:, :, y, x], err_arr[:, :, y, x], window
         )
         if y == x == center_pix:
-            canter_pix_surface_map = pixel_surface_map
+            center_pix_surface_map = pixel_surface_map
         store(y, x, TS, t0, fwhm, amps, amp_errs)
 
     # optional second pass: a point source has the same light curve shape in
@@ -395,7 +395,7 @@ def ts_fit_map(
                 time_arr, flux_arr[:, :, y, x], err_arr[:, :, y, x], window, start=start
             )
             if y == x == center_pix:
-                canter_pix_surface_map = pixel_surface_map
+                center_pix_surface_map = pixel_surface_map
             if TS > ts_map[y, x]:
                 store(y, x, TS, t0, fwhm, amps, amp_errs)
 
@@ -405,7 +405,7 @@ def ts_fit_map(
         "FWHM": fwhm_map,
         "amps": amps_map,
         "amp_errs": amp_errs_map,
-        "surface_map": canter_pix_surface_map,
+        "surface_map": center_pix_surface_map,
     }
 
     return output
