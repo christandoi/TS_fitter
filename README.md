@@ -36,7 +36,7 @@ As alluded to above, we can implement a few changes to drastically cut down on c
     * All pixels within a flaring event should contain the same temporal information (t0, FWHM) as the neighboring pixels. This is essentially a check to make sure no pixelation occurs as we're providing the answer for the pixels to "converge" on
 
 ## Results
-First a few images in different classifications of events (long-duration, short-duration, moving object such as a weather balloon or satellite) to show the Python implementation matches the GSL implementation. These images contain 4 plots:
+First a few images in different classifications of events (long-duration: stochastic variability of an Active Galactic Nuclei, short-duration: a stellar flare, moving object: likely a weather balloon or satellite) to show the Python implementation matches the GSL implementation. These images contain 4 plots:
 * **Top-left**
     * Original GSL fit (with score and FWHM in sub-title)
 * **Bottom-left**
