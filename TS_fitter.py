@@ -1,4 +1,3 @@
-from spt3g import core, maps, std_processing
 import numpy as np
 from scipy.optimize import minimize
 
@@ -32,6 +31,8 @@ def format_data(map_frames, cutout_size=None):
         value, as time_arr is given in units relative to the start of
         the light curve.
     """
+    from spt3g import core, maps, std_processing
+
     time90 = []
     time150 = []
     flux90 = []
